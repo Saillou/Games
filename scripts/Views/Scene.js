@@ -5,13 +5,13 @@
 var Scene = function(id_, game_) {
 	// - Public members
 	this.game = game_;
-	
+
 	// - Private members
 	var ctx = document.getElementById(id_).getContext('2d');
 	
-	var zoneCommon = new ZoneCommon(ctx);
-	var zonePlayerTop = new ZonePlayerTop(ctx);
-	var zonePlayerBot = new ZonePlayerBot(ctx);
+	var zoneCommon = new ZoneCommon(ctx, this.game);
+	var zonePlayerTop = new ZonePlayerTop(ctx, game.players[1]);
+	var zonePlayerBot = new ZonePlayerBot(ctx, game.players[0]);
 	
 	// - Public methods
 	this.draw = function() {
@@ -25,12 +25,12 @@ var Scene = function(id_, game_) {
 	    ctx.canvas.height = ctx.canvas.offsetHeight;
 		
         // Widgets
-        zoneCommon.draw(game);
+        zoneCommon.draw();
 
         if (game.players.length < 2)
             return;
 
-        zonePlayerBot.draw(game.players[0]);
-        zonePlayerTop.draw(game.players[1]);
+        zonePlayerBot.draw();
+        zonePlayerTop.draw();
 	}
 }

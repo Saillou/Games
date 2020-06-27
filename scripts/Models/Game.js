@@ -5,7 +5,7 @@
 var Game = function () {
     // - Public members
     this.players = [];
-    this.cardsThrowed = [];
+    this.modelCardThrown = [];
     this.cardsRemaining = [];
 
     // - Private members

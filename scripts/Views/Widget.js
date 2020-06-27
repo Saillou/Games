@@ -26,6 +26,8 @@ var Widget = function(ctx_) {
 	
 	// Methods
 	this.draw = function() {
+	    console.log("Draw widget");
+
 		let w = this.ctx.canvas.width/100;
 		let h = this.ctx.canvas.height/100;
 
